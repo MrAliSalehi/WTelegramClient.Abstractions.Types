@@ -65,6 +65,15 @@ public static class MediaExtensions
         PhotoStrippedSize photoStrippedSize       => photoStrippedSize.Type,
         _                                         => null
     };
+    public static byte[] Bytes(this PhotoSizeBase psb) => psb switch
+    {
+        PhotoCachedSize photoCachedSize     => photoCachedSize.bytes,
+        TL.PhotoCachedSize photoCachedSize1 => photoCachedSize1.bytes,
+        PhotoPathSize photoPathSize         => photoPathSize.bytes,
+        PhotoStrippedSize photoStrippedSize => photoStrippedSize.bytes,
+        _                                   => Array.Empty<byte>()
+    };
+    public static IEnumerable<byte[]> PhotoBytes(this Photo photo) => photo.sizes.Select(p => p.Bytes()).Where(Enumerable.Any);
     public static IEnumerable<string> PhotoTypes(this Photo photo) => photo.sizes.Select(photoSizeBase => photoSizeBase.Type()).OfType<string>().ToList();
     public static IEnumerable<(int width, int height)> PhotosDimensions(this Photo photo) => photo.sizes.Select(p => p.Dimensions());
     public static IEnumerable<int> PhotoSizes(this Photo photo) => photo.sizes.Select(p => p.Size());
