@@ -9,6 +9,7 @@ public static class MessageExtensions
         UpdateNewChannelMessage cm => cm.message,
         UpdateEditMessage em       => em.message,
         UpdateNewMessage nm        => nm.message,
+        UpdateNewScheduledMessage sm => sm.message,
         _                          => null
     };
 
