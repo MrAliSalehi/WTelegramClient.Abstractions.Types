@@ -6,13 +6,12 @@ public static class MessageExtensions
 {
     public static MessageBase? MessageBase(this Update update) => update switch
     {
-        UpdateNewChannelMessage cm => cm.message,
-        UpdateEditMessage em       => em.message,
-        UpdateNewMessage nm        => nm.message,
+        UpdateNewChannelMessage cm   => cm.message,
+        UpdateEditMessage em         => em.message,
+        UpdateNewMessage nm          => nm.message,
         UpdateNewScheduledMessage sm => sm.message,
-        _                          => null
+        _                            => null
     };
-
 
     public static Peer? Sender(this MessageBase mb) => mb switch
     {
@@ -34,5 +33,12 @@ public static class MessageExtensions
         Message msg       => (msg.flags & Message.Flags.out_) != 0,
         MessageService ms => (ms.flags & MessageService.Flags.out_) != 0,
         _                 => false
+    };
+    public static TimeSpan TimeDelta(this MessageBase mb) => DateTime.Now - mb switch
+    {
+        Message message               => message.Date,
+        MessageEmpty messageEmpty     => messageEmpty.Date,
+        MessageService messageService => messageService.Date,
+        _                             => throw new ArgumentOutOfRangeException(nameof(mb))
     };
 }
