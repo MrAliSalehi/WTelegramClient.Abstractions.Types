@@ -6,7 +6,13 @@ public static class ChatsExtensions
 {
     public static IEnumerable<Channel> Channels(this Messages_Chats mc, Func<Channel, bool>? predicate = null)
     {
-        var ofType = mc.chats.Values.OfType<Channel>();
+        var ofType = mc.chats.Values.OfType<Channel>().Where(c=>(c.flags & Channel.Flags.broadcast) != 0);
+        return predicate is null ? ofType : ofType.Where(predicate);
+    }
+
+    public static IEnumerable<Channel> SuperGroups(this Messages_Chats mc, Func<Channel, bool>? predicate = null)
+    {
+        var ofType = mc.chats.Values.OfType<Channel>().Where(c=> (c.flags & Channel.Flags.broadcast) == 0);
         return predicate is null ? ofType : ofType.Where(predicate);
     }
 
