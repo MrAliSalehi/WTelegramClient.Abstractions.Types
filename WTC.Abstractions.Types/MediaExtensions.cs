@@ -11,6 +11,7 @@ public static class MediaExtensions
         MessageMediaPhoto { photo: Photo photo } => photo,
         _                                        => null
     };
+
     public static MessageMedia? Media(this MessageBase mb) => mb switch
     {
         Message msg => msg.media,
@@ -41,6 +42,7 @@ public static class MediaExtensions
         PhotoStrippedSize photoStrippedSize       => photoStrippedSize.FileSize,
         _                                         => -1
     };
+
     public static (int width, int height) Dimensions(this PhotoSizeBase psb) => psb switch
     {
         PhotoCachedSize photoCachedSize           => (photoCachedSize.Width, photoCachedSize.Height),
@@ -53,6 +55,7 @@ public static class MediaExtensions
         PhotoStrippedSize photoStrippedSize       => (photoStrippedSize.Width, photoStrippedSize.Height),
         _                                         => (-1, -1)
     };
+
     public static string? Type(this PhotoSizeBase psb) => psb switch
     {
         PhotoCachedSize photoCachedSize           => photoCachedSize.Type,
@@ -65,6 +68,7 @@ public static class MediaExtensions
         PhotoStrippedSize photoStrippedSize       => photoStrippedSize.Type,
         _                                         => null
     };
+
     public static byte[] Bytes(this PhotoSizeBase psb) => psb switch
     {
         PhotoCachedSize photoCachedSize     => photoCachedSize.bytes,
@@ -73,8 +77,12 @@ public static class MediaExtensions
         PhotoStrippedSize photoStrippedSize => photoStrippedSize.bytes,
         _                                   => Array.Empty<byte>()
     };
+
     public static IEnumerable<byte[]> PhotoBytes(this Photo photo) => photo.sizes.Select(p => p.Bytes()).Where(Enumerable.Any);
+
     public static IEnumerable<string> PhotoTypes(this Photo photo) => photo.sizes.Select(photoSizeBase => photoSizeBase.Type()).OfType<string>().ToList();
+
     public static IEnumerable<(int width, int height)> PhotosDimensions(this Photo photo) => photo.sizes.Select(p => p.Dimensions());
+
     public static IEnumerable<int> PhotoSizes(this Photo photo) => photo.sizes.Select(p => p.Size());
 }
