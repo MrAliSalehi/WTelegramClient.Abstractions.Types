@@ -9,4 +9,5 @@ public static class ChatsExtensions
         var ofType = mc.chats.Values.OfType<Channel>();
         return predicate is null ? ofType.ToList() : ofType.Where(predicate).ToList();
     }
+    public static InputPeerChannel ToInputPeerChannel(this Channel ch) => new (ch.ID == 0 ? ch.id : -1, ch.access_hash);
 }
