@@ -10,7 +10,7 @@
         <PackageProjectUrl>https://github.com/MrAliSalehi/WTelegramClient.Abstractions.Types</PackageProjectUrl>
         <PackageIcon>logo.png</PackageIcon>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
@@ -20,9 +20,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="logo.png" Pack="true" PackagePath="/"/>
-        <None Include="README.md" Pack="true" PackagePath="/"/>
         <None Include="../LICENSE" Pack="true" PackagePath="/"/>
+        <None Include="../README.md" Pack="true" PackagePath="/"/>
+        <None Include="../logo.png" Pack="true" PackagePath="/"/>
         
     </ItemGroup>
 </Project>
