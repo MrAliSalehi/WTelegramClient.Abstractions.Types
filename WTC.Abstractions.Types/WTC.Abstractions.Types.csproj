@@ -1,13 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFrameworks>net6.0;net6.0-windows;net7.0;net7.0-windows;net8.0;net8.0-windows</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>Qwxp</Authors>
+        <Description>Telegram Type Abstractions For WTelegramClient</Description>
+        <Copyright> Apache-2.0</Copyright>
+        <PackageProjectUrl>https://github.com/MrAliSalehi/WTelegramClient.Abstractions.Types</PackageProjectUrl>
+        <PackageIcon>logo.png</PackageIcon>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Version>1.0.1</Version>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="WTelegramClient" Version="3.6.3" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="logo.png" Pack="true" PackagePath="/"/>
+        <None Include="README.md" Pack="true" PackagePath="/"/>
+        <None Include="../LICENSE" Pack="true" PackagePath="/"/>
+        
+    </ItemGroup>
 </Project>
