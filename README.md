@@ -4,7 +4,7 @@
 
 this project aims to make it easier to work with Telegram-Api types using [WTC](https://github.com/wiz0u/WTelegramClient).
 
-the goal is to eliminate the need of `pattern-matching` and `type casting` as much as possible and have more `FP` approach instead of `OOP` (the underlying impl is `OOP` however.
+the goal is to eliminate the need of `pattern-matching` and `type casting` as much as possible and have more `FP` approach instead of `OOP` (the underlying impl is `OOP` however).
 
 this library should NOT contain any Logic on its own, its should offer flexibility and readability for exchange of small performance _decrease_.
 ### Use
