@@ -22,5 +22,5 @@ using WTC.Abstractions.Types;
 
 ### Contribution
 
-contribution are welcome, but please [open a Discussion](https://github.com/MrAliSalehi/WTelegramClient.Abstractions.Types/discussions/new/choose) first to discuss about what you are looking for are what you want to implement first! you can also mention it in our [telegram Group](https://t.me/WTelegramClient).
+contribution are welcome, but please [open a Discussion](https://github.com/MrAliSalehi/WTelegramClient.Abstractions.Types/discussions/new/choose) first to discuss about what you are looking for or what you want to implement first! you can also mention it in our [telegram Group](https://t.me/WTelegramClient).
 
